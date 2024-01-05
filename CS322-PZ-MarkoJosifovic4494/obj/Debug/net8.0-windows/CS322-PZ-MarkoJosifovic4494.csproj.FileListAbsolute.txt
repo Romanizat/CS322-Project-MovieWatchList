@@ -1,0 +1,17 @@
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\bin\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.exe
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\bin\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.deps.json
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\bin\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.runtimeconfig.json
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\bin\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.dll
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\bin\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.pdb
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322_PZ_MarkoJosifovic4494.Form1.resources
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.csproj.GenerateResource.cache
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.AssemblyInfoInputs.cache
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.AssemblyInfo.cs
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.csproj.CoreCompileInputs.cache
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.dll
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\refint\CS322-PZ-MarkoJosifovic4494.dll
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.pdb
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.genruntimeconfig.cache
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\ref\CS322-PZ-MarkoJosifovic4494.dll
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322_PZ_MarkoJosifovic4494.Form2.resources
