@@ -96,6 +96,11 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
 
                 // Open the details form
                 MovieDetailsForm detailsForm = new MovieDetailsForm(movie);
+
+                detailsForm.StartPosition = FormStartPosition.Manual;
+
+                detailsForm.Location = this.Location;
+
                 detailsForm.Show();
             }
         }
