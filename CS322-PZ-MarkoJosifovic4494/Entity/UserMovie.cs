@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS322_PZ_MarkoJosifovic4494
+namespace CS322_PZ_MarkoJosifovic4494.Entity
 {
     public class UserMovie
     {
