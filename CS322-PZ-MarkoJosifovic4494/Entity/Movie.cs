@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,6 +24,22 @@ namespace CS322_PZ_MarkoJosifovic4494.Entity
         public Movie()
         {
             UserMovies = new HashSet<UserMovie>();
+        }
+
+        public string GetRating()
+        {
+            if (UserMovies == null || !UserMovies.Any(um => um.Rating.HasValue))
+            {
+                return "N/A";
+            }
+            else
+            {
+                var averageRating = UserMovies
+                                        .Where(um => um.Rating.HasValue)
+                                        .Average(um => um.Rating.Value);
+
+                return $"{averageRating.ToString("0.0")}/5";
+            }
         }
     }
 }

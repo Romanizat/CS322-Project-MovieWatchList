@@ -1,4 +1,5 @@
 ﻿using CS322_PZ_MarkoJosifovic4494.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,8 @@ namespace CS322_PZ_MarkoJosifovic4494.Repo
         public List<Movie> FindAllByTitle(string title)
         {
             return _context.Movie
-                .Where(m => m.Title.Contains(title, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+                   .Where(m => EF.Functions.Like(m.Title, $"%{title}%"))
+                   .ToList();
         }
 
         public Movie GetById(int id)

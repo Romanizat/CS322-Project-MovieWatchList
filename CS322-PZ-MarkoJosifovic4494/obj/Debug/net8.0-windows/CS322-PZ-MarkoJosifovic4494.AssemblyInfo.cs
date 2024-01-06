@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CS322-PZ-MarkoJosifovic4494")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1743bf1ba11bd4e3a6ec40b2175c6ffe8a75a747")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3468cb9a65c94a9831c32c4eb9be3a266de53816")]
 [assembly: System.Reflection.AssemblyProductAttribute("CS322-PZ-MarkoJosifovic4494")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CS322-PZ-MarkoJosifovic4494")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
