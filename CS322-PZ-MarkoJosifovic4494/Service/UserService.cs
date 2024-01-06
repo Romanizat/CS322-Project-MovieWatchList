@@ -40,7 +40,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
 
             if (user != null)
             {
-                return VerifyPassword(password, user.Password); // Assuming user.Password is hashed
+                return VerifyPassword(password, user.Password);
             }
 
             return false;

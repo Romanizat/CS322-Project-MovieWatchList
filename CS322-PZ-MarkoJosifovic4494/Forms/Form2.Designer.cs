@@ -70,6 +70,7 @@
             registerButton.TabIndex = 1;
             registerButton.Text = "Register";
             registerButton.UseVisualStyleBackColor = true;
+            registerButton.Click += this.registerButton_Click;
             // 
             // label1
             // 
