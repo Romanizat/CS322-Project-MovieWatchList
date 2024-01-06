@@ -99,5 +99,14 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
                 detailsForm.Show();
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateMovieForm createMovieForm = new CreateMovieForm(_movieService);
+            createMovieForm.StartPosition = FormStartPosition.Manual;
+            createMovieForm.Location = this.Location;
+            createMovieForm.Show();
+
+        }
     }
 }

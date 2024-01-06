@@ -39,6 +39,8 @@
             Summary = new DataGridViewTextBoxColumn();
             Rating = new DataGridViewTextBoxColumn();
             Details = new DataGridViewButtonColumn();
+            label1 = new Label();
+            linkLabel1 = new LinkLabel();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -129,11 +131,33 @@
             Details.HeaderText = "Details";
             Details.Name = "Details";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(567, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(238, 15);
+            label1.TabIndex = 8;
+            label1.Text = "The movie you're looking for is not present?";
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(655, 46);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(68, 15);
+            linkLabel1.TabIndex = 9;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Add it here!";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(817, 671);
+            Controls.Add(linkLabel1);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(button3);
             Controls.Add(textBox1);
@@ -163,5 +187,7 @@
         private DataGridViewTextBoxColumn Summary;
         private DataGridViewTextBoxColumn Rating;
         private DataGridViewButtonColumn Details;
+        private Label label1;
+        private LinkLabel linkLabel1;
     }
 }

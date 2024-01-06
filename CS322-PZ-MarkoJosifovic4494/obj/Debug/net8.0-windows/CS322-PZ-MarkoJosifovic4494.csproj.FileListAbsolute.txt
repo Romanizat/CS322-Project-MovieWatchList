@@ -35,3 +35,4 @@ C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4
 C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322-PZ-MarkoJosifovic4494.csproj.CopyComplete
 C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322_PZ_MarkoJosifovic4494.Forms.MainMenu.resources
 C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322_PZ_MarkoJosifovic4494.Forms.MovieDetailsForm.resources
+C:\Users\Marko\source\repos\CS322-PZ-MarkoJosifovic4494\CS322-PZ-MarkoJosifovic4494\obj\Debug\net8.0-windows\CS322_PZ_MarkoJosifovic4494.Forms.CreateMovieForm.resources
