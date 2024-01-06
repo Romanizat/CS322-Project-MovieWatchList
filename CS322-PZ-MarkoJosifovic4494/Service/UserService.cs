@@ -55,6 +55,11 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
         {
             return BCrypt.Net.BCrypt.Verify(inputPassword, storedHash);
         }
+
+        public User GetByUsername(string username)
+        {
+            return _userRepository.GetByUsername(username);
+        }
     }
 
 }
