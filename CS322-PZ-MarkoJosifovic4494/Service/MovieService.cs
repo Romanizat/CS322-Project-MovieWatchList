@@ -84,5 +84,18 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
                 _userMovieRepository.CreateUserMovie(userMovie);
             }
         }
+
+        public UserMovie GetUserMovieByUserAndMovie(User user, Movie movie)
+        {
+            return _userMovieRepository.FindByUserAndMovie(user.Id, movie.Id);
+        }
+
+        public void deleteUserMovie(UserMovie userMovie)
+        {
+            if (userMovie != null)
+            {
+                _userMovieRepository.DeleteUserMovie(userMovie.Id);
+            }
+        }
     }
 }

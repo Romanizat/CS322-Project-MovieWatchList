@@ -18,6 +18,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
     {
         private Movie _movie;
         private User _currentUser;
+        private UserMovie userMovie;
         private MovieService _MovieService;
         public MovieDetailsForm(Movie movie, MovieService movieService)
         {
@@ -78,17 +79,64 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
 
         private void SetButtonStates()
         {
-            // Check if the movie is in the watched list
-            bool isWatched = _currentUser.UserMovies
-                .Any(um => um.Movie.Id == _movie.Id && um.Status == MovieStatus.Watched);
+            RemoveLinkLabels();
 
-            // Check if the movie is in the watch list
-            bool isInWatchList = _currentUser.UserMovies
-                .Any(um => um.Movie.Id == _movie.Id && um.Status == MovieStatus.WatchList);
+            userMovie = _MovieService.GetUserMovieByUserAndMovie(_currentUser, _movie);
 
-            // Enable or disable buttons based on the movie status
-            button1.Enabled = !isWatched; // Add to Watched button
-            button2.Enabled = !isInWatchList && !isWatched; // Add to Watch List button
+            if (userMovie != null)
+            {
+
+                if (userMovie.Status == MovieStatus.Watched)
+                {
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                    AddLinkLabel(button1, "Remove from watched?");
+                }
+                else if (userMovie.Status == MovieStatus.WatchList)
+                {
+                    button1.Enabled = true;
+                    button2.Enabled = false;
+                    AddLinkLabel(button2, "Remove from watch list?");
+                }
+            }
+            else
+            {
+                button1.Enabled = true;
+                button2.Enabled = true;
+            }
+        }
+
+        private void AddLinkLabel(Button button, string text)
+        {
+            LinkLabel linkLabel = new LinkLabel
+            {
+                Text = text,
+                AutoSize = true,
+                Location = new Point(button.Location.X, button.Location.Y + button.Height + 5),
+            };
+
+            linkLabel.Click += LinkLabel_Click;
+            this.Controls.Add(linkLabel);
+        }
+
+        private void RemoveLinkLabels()
+        {
+            for (int i = this.Controls.Count - 1; i >= 0; i--)
+            {
+                if (this.Controls[i] is LinkLabel)
+                {
+                    this.Controls.RemoveAt(i);
+                }
+            }
+        }
+
+        private void LinkLabel_Click(object sender, EventArgs e)
+        {
+            if (sender is LinkLabel linkLabel)
+            {
+                _MovieService.deleteUserMovie(userMovie);
+                SetButtonStates(); // Refresh the button states after the update
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
