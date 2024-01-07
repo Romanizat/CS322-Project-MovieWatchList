@@ -118,6 +118,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
                 Text = text,
                 AutoSize = true,
                 Location = new Point(button.Location.X, button.Location.Y + button.Height + 5),
+                Tag = "dynamic"
             };
 
             linkLabel.Click += LinkLabel_Click;
@@ -128,7 +129,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
         {
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
-                if (this.Controls[i] is LinkLabel)
+                if (this.Controls[i] is LinkLabel linkLabel && (string)linkLabel.Tag == "dynamic")
                 {
                     this.Controls.RemoveAt(i);
                 }
