@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CS322_PZ_MarkoJosifovic4494.Forms
 {
@@ -20,6 +21,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
         private User _currentUser;
         private UserMovie userMovie;
         private MovieService _MovieService;
+        private Boolean isRatingChanged;
         public MovieDetailsForm(Movie movie, MovieService movieService)
         {
             InitializeComponent();
@@ -90,6 +92,9 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
                 {
                     button1.Enabled = false;
                     button2.Enabled = false;
+                    trackBar1.Value = (int)(userMovie.Rating * 2);
+                    label8.Text = $"Rating: {userMovie.Rating}/5";
+                    trackBar1.Enabled = false;
                     AddLinkLabel(button1, "Remove from watched?");
                 }
                 else if (userMovie.Status == MovieStatus.WatchList)
@@ -106,7 +111,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
             }
         }
 
-        private void AddLinkLabel(Button button, string text)
+        private void AddLinkLabel(System.Windows.Forms.Button button, string text)
         {
             LinkLabel linkLabel = new LinkLabel
             {
@@ -141,16 +146,29 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _MovieService.AddOrUpdateUserMovie(_movie, _currentUser, MovieStatus.Watched);
+
+            if (isRatingChanged == false)
+            {
+                MessageBox.Show("You must rate the movie before adding it to your watched movies list.");
+                return;
+            }
+            double rating = trackBar1.Value / 2.0;
+            _MovieService.AddOrUpdateUserMovie(_movie, _currentUser, MovieStatus.Watched, rating);
             SetButtonStates();
             MessageBox.Show("You have successfully added this movie to your watched movies list.");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _MovieService.AddOrUpdateUserMovie(_movie, _currentUser, MovieStatus.WatchList);
+            _MovieService.AddOrUpdateUserMovie(_movie, _currentUser, MovieStatus.WatchList, 0.0);
             SetButtonStates();
             MessageBox.Show("You have successfully added this movie to your watch list.");
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            isRatingChanged = true;
+            label8.Text = $"Rating: {trackBar1.Value / 2m}/5";
         }
     }
 }

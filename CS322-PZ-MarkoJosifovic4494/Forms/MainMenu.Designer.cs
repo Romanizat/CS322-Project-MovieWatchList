@@ -69,6 +69,7 @@
             button1.TabIndex = 2;
             button1.Text = "View Watched Movies";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -78,21 +79,23 @@
             button2.TabIndex = 3;
             button2.Text = "View Watch List";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // textBox1
             // 
             textBox1.Location = new Point(25, 38);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(411, 23);
+            textBox1.Size = new Size(364, 23);
             textBox1.TabIndex = 5;
+            textBox1.Text = "Search Movies in DB...";
             // 
             // button3
             // 
-            button3.Location = new Point(459, 38);
+            button3.Location = new Point(410, 38);
             button3.Name = "button3";
-            button3.Size = new Size(75, 23);
+            button3.Size = new Size(124, 23);
             button3.TabIndex = 6;
-            button3.Text = "Search";
+            button3.Text = "Search All Movies";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 

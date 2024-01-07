@@ -15,7 +15,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Entity
         [Key]
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public int? Rating { get; set; }
+        public double? Rating { get; set; }
         public MovieStatus Status { get; set; }
 
         public int UserId { get; set; }

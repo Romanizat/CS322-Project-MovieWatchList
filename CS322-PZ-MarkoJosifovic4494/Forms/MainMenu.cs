@@ -115,5 +115,15 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
             createMovieForm.Show();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PopulateListView(_movieService.GetAllWatchedMoviesForLoggedInUser());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PopulateListView(_movieService.GetAllWatchListMoviesForLoggedInUser());
+        }
     }
 }

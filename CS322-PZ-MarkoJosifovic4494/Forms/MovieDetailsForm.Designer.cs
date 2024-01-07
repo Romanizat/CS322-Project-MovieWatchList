@@ -39,15 +39,19 @@
             label6 = new Label();
             button1 = new Button();
             button2 = new Button();
+            trackBar1 = new TrackBar();
+            label7 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox1.Location = new Point(577, 29);
+            pictureBox1.Location = new Point(612, 29);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(310, 409);
+            pictureBox1.Size = new Size(369, 500);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -73,7 +77,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(36, 314);
+            label3.Location = new Point(36, 329);
             label3.Name = "label3";
             label3.Size = new Size(63, 15);
             label3.TabIndex = 3;
@@ -82,11 +86,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(36, 371);
+            label4.Location = new Point(36, 386);
             label4.Name = "label4";
-            label4.Size = new Size(44, 15);
+            label4.Size = new Size(92, 15);
             label4.TabIndex = 4;
-            label4.Text = "Rating:";
+            label4.Text = "All Users Rating:";
             // 
             // label5
             // 
@@ -109,7 +113,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(122, 314);
+            linkLabel1.Location = new Point(122, 329);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(60, 15);
             linkLabel1.TabIndex = 7;
@@ -121,7 +125,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 15F);
-            label6.Location = new Point(122, 360);
+            label6.Location = new Point(134, 375);
             label6.Name = "label6";
             label6.Size = new Size(65, 28);
             label6.TabIndex = 8;
@@ -129,7 +133,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(36, 415);
+            button1.Location = new Point(36, 506);
             button1.Name = "button1";
             button1.Size = new Size(123, 23);
             button1.TabIndex = 9;
@@ -139,7 +143,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(339, 415);
+            button2.Location = new Point(429, 506);
             button2.Name = "button2";
             button2.Size = new Size(155, 23);
             button2.TabIndex = 10;
@@ -147,11 +151,42 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // trackBar1
+            // 
+            trackBar1.LargeChange = 1;
+            trackBar1.Location = new Point(36, 455);
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new Size(104, 45);
+            trackBar1.TabIndex = 11;
+            trackBar1.Scroll += trackBar1_Scroll;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(36, 424);
+            label7.Name = "label7";
+            label7.Size = new Size(138, 15);
+            label7.TabIndex = 12;
+            label7.Text = "Rate and add to watched";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F);
+            label8.Location = new Point(204, 455);
+            label8.Name = "label8";
+            label8.Size = new Size(117, 21);
+            label8.TabIndex = 13;
+            label8.Text = "Rate this movie";
+            // 
             // MovieDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(899, 501);
+            ClientSize = new Size(993, 582);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(trackBar1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label6);
@@ -167,6 +202,7 @@
             Text = "MovieDetailsForm";
             Load += MovieDetailsForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,5 +220,8 @@
         private Label label6;
         private Button button1;
         private Button button2;
+        private TrackBar trackBar1;
+        private Label label7;
+        private Label label8;
     }
 }

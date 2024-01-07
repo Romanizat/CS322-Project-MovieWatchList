@@ -46,5 +46,13 @@ namespace CS322_PZ_MarkoJosifovic4494.Repo
             _context.Movie.Update(movie);
             _context.SaveChanges();
         }
+
+        public List<Movie> GetAllMoviesByUserIdAndStatus(int id, MovieStatus status)
+        {
+            return _context.UserMovie
+                .Where(um => um.UserId == id && um.Status == status)
+                .Select(um => um.Movie)
+                .ToList();
+        }
     }
 }

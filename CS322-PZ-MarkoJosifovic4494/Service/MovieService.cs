@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using CS322_PZ_MarkoJosifovic4494.Util;
 
 namespace CS322_PZ_MarkoJosifovic4494.Service
 {
@@ -60,7 +61,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
             _movieRepository.Update(movie);
         }
 
-        public void AddOrUpdateUserMovie(Movie movie, User user, MovieStatus status)
+        public void AddOrUpdateUserMovie(Movie movie, User user, MovieStatus status, double rating)
         {
 
             var userMovie = _userMovieRepository.FindByUserAndMovie(user.Id, movie.Id);
@@ -69,6 +70,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
             {
                 userMovie.Status = status;
                 userMovie.Date = DateTime.Now;
+                userMovie.Rating = rating;
                 _userMovieRepository.UpdateUserMovie();
             }
             else
@@ -78,6 +80,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
                     MovieId = movie.Id,
                     UserId = user.Id,
                     Status = status,
+                    Rating = rating,
                     Date = DateTime.Now
                 };
 
@@ -96,6 +99,16 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
             {
                 _userMovieRepository.DeleteUserMovie(userMovie.Id);
             }
+        }
+
+        public List<Movie> GetAllWatchedMoviesForLoggedInUser()
+        {
+            return _movieRepository.GetAllMoviesByUserIdAndStatus(UserContext.CurrentUser.Id, MovieStatus.Watched);
+        }
+
+        public List<Movie> GetAllWatchListMoviesForLoggedInUser()
+        {
+            return _movieRepository.GetAllMoviesByUserIdAndStatus(UserContext.CurrentUser.Id, MovieStatus.WatchList);
         }
     }
 }
