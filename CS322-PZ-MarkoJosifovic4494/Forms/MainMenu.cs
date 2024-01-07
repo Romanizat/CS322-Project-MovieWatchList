@@ -1,4 +1,4 @@
-﻿using CS322_PZ_MarkoJosifovic4494.Entity;
+using CS322_PZ_MarkoJosifovic4494.Entity;
 using CS322_PZ_MarkoJosifovic4494.Repo;
 using CS322_PZ_MarkoJosifovic4494.Service;
 using CS322_PZ_MarkoJosifovic4494.Util;
@@ -54,13 +54,15 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // Get the search keyword from the search bar
             string searchKeyword = textBox1.Text;
 
-            // Use the MovieService to get the list of movies
+            if (searchKeyword.Equals("Search Movies in DB..."))
+            {
+                searchKeyword = "";
+            }
+
             List<Movie> movies = _movieService.FindAllByTitle(searchKeyword);
 
-            // Populate the ListView with the results
             PopulateListView(movies);
         }
 
@@ -124,6 +126,24 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             PopulateListView(_movieService.GetAllWatchListMoviesForLoggedInUser());
+        }
+
+        private void textBox1_Enter_1(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Search Movies in DB...")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = SystemColors.WindowText; // Set text color to default
+            }
+        }
+
+        private void textBox1_Leave_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                textBox1.Text = "Search Movies in DB...";
+                textBox1.ForeColor = SystemColors.GrayText; // Set text color to gray to indicate placeholder text
+            }
         }
     }
 }

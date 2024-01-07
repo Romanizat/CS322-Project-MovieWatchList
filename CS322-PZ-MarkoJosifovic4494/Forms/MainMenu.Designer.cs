@@ -1,4 +1,4 @@
-﻿namespace CS322_PZ_MarkoJosifovic4494.Forms
+namespace CS322_PZ_MarkoJosifovic4494.Forms
 {
     partial class MainMenu
     {
@@ -83,11 +83,14 @@
             // 
             // textBox1
             // 
+            textBox1.ForeColor = Color.Gray;
             textBox1.Location = new Point(25, 38);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(364, 23);
             textBox1.TabIndex = 5;
             textBox1.Text = "Search Movies in DB...";
+            textBox1.Enter += textBox1_Enter_1;
+            textBox1.Leave += textBox1_Leave_1;
             // 
             // button3
             // 
