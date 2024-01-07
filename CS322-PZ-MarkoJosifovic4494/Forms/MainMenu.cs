@@ -30,6 +30,9 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
             this.FormClosed += new FormClosedEventHandler(MainMenu_FormClosed);
             dataGridView1.AllowUserToAddRows = false;
 
+            
+
+            PopulateListView(_movieService.FindAllByTitle(""));
 
         }
 

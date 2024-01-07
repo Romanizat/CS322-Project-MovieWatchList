@@ -53,7 +53,6 @@ namespace CS322_PZ_MarkoJosifovic4494.Repo
             return _context.UserMovie
                 .Where(um => um.UserId == id && um.Status == status)
                 .Select(um => um.Movie)
-                .Include(m => m.UserMovies)
                 .ToList();
         }
     }
