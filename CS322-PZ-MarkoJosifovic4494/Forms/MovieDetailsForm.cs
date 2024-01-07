@@ -1,4 +1,6 @@
 ﻿using CS322_PZ_MarkoJosifovic4494.Entity;
+using CS322_PZ_MarkoJosifovic4494.Service;
+using CS322_PZ_MarkoJosifovic4494.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,14 +16,18 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
 {
     public partial class MovieDetailsForm : Form
     {
-        private readonly Movie _movie;
-        public MovieDetailsForm(Movie movie)
+        private Movie _movie;
+        private User _currentUser;
+        private MovieService _MovieService;
+        public MovieDetailsForm(Movie movie, MovieService movieService)
         {
             InitializeComponent();
             _movie = movie;
+            _MovieService = movieService;
+            _currentUser = UserContext.CurrentUser;
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             richTextBox1.ReadOnly = true;
-
+            SetButtonStates();
         }
 
         private async void MovieDetailsForm_Load(object sender, EventArgs e)
@@ -68,6 +74,35 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
             {
                 MessageBox.Show("Unable to open link.");
             }
+        }
+
+        private void SetButtonStates()
+        {
+            // Check if the movie is in the watched list
+            bool isWatched = _currentUser.UserMovies
+                .Any(um => um.Movie.Id == _movie.Id && um.Status == MovieStatus.Watched);
+
+            // Check if the movie is in the watch list
+            bool isInWatchList = _currentUser.UserMovies
+                .Any(um => um.Movie.Id == _movie.Id && um.Status == MovieStatus.WatchList);
+
+            // Enable or disable buttons based on the movie status
+            button1.Enabled = !isWatched; // Add to Watched button
+            button2.Enabled = !isInWatchList && !isWatched; // Add to Watch List button
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _MovieService.AddOrUpdateUserMovie(_movie, _currentUser, MovieStatus.Watched);
+            SetButtonStates();
+            MessageBox.Show("You have successfully added this movie to your watched movies list.");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _MovieService.AddOrUpdateUserMovie(_movie, _currentUser, MovieStatus.WatchList);
+            SetButtonStates();
+            MessageBox.Show("You have successfully added this movie to your watch list.");
         }
     }
 }

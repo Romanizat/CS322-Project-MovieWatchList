@@ -5,16 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CS322_PZ_MarkoJosifovic4494.Service
 {
     public class MovieService
     {
         private readonly MovieRepository _movieRepository;
+        private readonly UserMovieRepository _userMovieRepository;
 
-        public MovieService(MovieRepository movieRepository)
+        public MovieService(MovieRepository movieRepository, UserMovieRepository userMovieRepository)
         {
             _movieRepository = movieRepository;
+            _userMovieRepository = userMovieRepository;
         }
 
 
@@ -25,7 +29,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
                 Title = title,
                 Summary = summary,
                 Imdb = imdb,
-                Image= imageUrl
+                Image = imageUrl
             };
 
             return _movieRepository.Create(newMovie);
@@ -54,6 +58,31 @@ namespace CS322_PZ_MarkoJosifovic4494.Service
             movie.Imdb = imdb;
             movie.Image = imageUrl;
             _movieRepository.Update(movie);
+        }
+
+        public void AddOrUpdateUserMovie(Movie movie, User user, MovieStatus status)
+        {
+
+            var userMovie = _userMovieRepository.FindByUserAndMovie(user.Id, movie.Id);
+
+            if (userMovie != null)
+            {
+                userMovie.Status = status;
+                userMovie.Date = DateTime.Now;
+                _userMovieRepository.UpdateUserMovie();
+            }
+            else
+            {
+                userMovie = new UserMovie
+                {
+                    MovieId = movie.Id,
+                    UserId = user.Id,
+                    Status = status,
+                    Date = DateTime.Now
+                };
+
+                _userMovieRepository.CreateUserMovie(userMovie);
+            }
         }
     }
 }

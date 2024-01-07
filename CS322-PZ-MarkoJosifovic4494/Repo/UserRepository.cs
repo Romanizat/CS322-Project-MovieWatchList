@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CS322_PZ_MarkoJosifovic4494.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace CS322_PZ_MarkoJosifovic4494.Repo
 {
@@ -18,7 +19,9 @@ namespace CS322_PZ_MarkoJosifovic4494.Repo
 
         public User GetByUsername(string username)
         {
-            return _context.User.FirstOrDefault(u => u.Username == username);
+            return _context.User.Include(u => u.UserMovies)
+                .ThenInclude(um => um.Movie)
+                .FirstOrDefault(u => u.Username == username);
         }
 
         public User Create(User user)

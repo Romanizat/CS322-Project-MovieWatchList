@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 
 namespace CS322_PZ_MarkoJosifovic4494.Entity
 {
+    [Table("user_movie")]
     public class UserMovie
     {
         [Key]
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public int? Rating { get; set; } // Rating might be null if the movie is on the watchlist
+        public int? Rating { get; set; }
         public MovieStatus Status { get; set; }
+
         public int UserId { get; set; }
-        [ForeignKey("UserId")]
         public virtual User User { get; set; }
+        
         public int MovieId { get; set; }
-        [ForeignKey("MovieId")]
         public virtual Movie Movie { get; set; }
     }
 

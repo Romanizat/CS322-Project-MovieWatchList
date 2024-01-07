@@ -37,11 +37,14 @@
             richTextBox1 = new RichTextBox();
             linkLabel1 = new LinkLabel();
             label6 = new Label();
+            button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Location = new Point(510, 29);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(278, 359);
@@ -124,11 +127,33 @@
             label6.TabIndex = 8;
             label6.Text = "label6";
             // 
+            // button1
+            // 
+            button1.Location = new Point(36, 415);
+            button1.Name = "button1";
+            button1.Size = new Size(123, 23);
+            button1.TabIndex = 9;
+            button1.Text = "Add to Watched";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(339, 415);
+            button2.Name = "button2";
+            button2.Size = new Size(155, 23);
+            button2.TabIndex = 10;
+            button2.Text = "Add To Watch List";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // MovieDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(linkLabel1);
             Controls.Add(richTextBox1);
@@ -157,5 +182,7 @@
         private RichTextBox richTextBox1;
         private LinkLabel linkLabel1;
         private Label label6;
+        private Button button1;
+        private Button button2;
     }
 }

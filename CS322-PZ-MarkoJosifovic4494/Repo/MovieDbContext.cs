@@ -19,5 +19,33 @@ namespace CS322_PZ_MarkoJosifovic4494.Repo
             string connectionString = "Server=localhost;Database=movie_watchlist;Uid=root;Pwd=;";
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.UserMovies)
+                .WithOne(e => e.User);
+
+            modelBuilder.Entity<Movie>()
+                .HasMany(e => e.UserMovies)
+                .WithOne(e => e.Movie);
+
+            modelBuilder.Entity<UserMovie>(entity =>
+            {
+                entity.Property(e => e.MovieId).HasColumnName("movie_id");
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+                entity.HasOne(e => e.User).WithMany(e => e.UserMovies).HasForeignKey(e=>e.UserId);
+                entity.HasOne(e => e.Movie).WithMany(e => e.UserMovies).HasForeignKey(e => e.MovieId);
+                entity.Property(um => um.Status)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (MovieStatus)Enum.Parse(typeof(MovieStatus), v)
+                )
+                ;
+            });
+
+            // Other configurations...
+        }
+
     }
 }

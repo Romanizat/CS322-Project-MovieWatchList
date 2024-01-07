@@ -24,7 +24,9 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
             InitializeComponent();
             var dbContext = new MovieDbContext();
             var movieRepository = new MovieRepository(dbContext);
-            _movieService = new MovieService(movieRepository);
+            var userMovieRepository = new UserMovieRepository(dbContext);
+
+            _movieService = new MovieService(movieRepository, userMovieRepository);
             this.FormClosed += new FormClosedEventHandler(MainMenu_FormClosed);
             dataGridView1.AllowUserToAddRows = false;
 
@@ -95,7 +97,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
                 var movie = (Movie)dataGridView1.Rows[e.RowIndex].Tag;
 
                 // Open the details form
-                MovieDetailsForm detailsForm = new MovieDetailsForm(movie);
+                MovieDetailsForm detailsForm = new MovieDetailsForm(movie, _movieService);
 
                 detailsForm.StartPosition = FormStartPosition.Manual;
 
