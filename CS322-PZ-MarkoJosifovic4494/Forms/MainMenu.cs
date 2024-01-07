@@ -111,7 +111,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CreateMovieForm createMovieForm = new CreateMovieForm(_movieService);
+            CreateMovieForm createMovieForm = new CreateMovieForm(_movieService, null);
             createMovieForm.StartPosition = FormStartPosition.Manual;
             createMovieForm.Location = this.Location;
             createMovieForm.Show();

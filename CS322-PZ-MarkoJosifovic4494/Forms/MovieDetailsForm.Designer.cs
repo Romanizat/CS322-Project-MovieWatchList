@@ -42,6 +42,8 @@
             trackBar1 = new TrackBar();
             label7 = new Label();
             label8 = new Label();
+            label9 = new Label();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
@@ -49,7 +51,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox1.Location = new Point(612, 29);
+            pictureBox1.Location = new Point(625, 29);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(369, 500);
             pictureBox1.TabIndex = 0;
@@ -179,11 +181,32 @@
             label8.TabIndex = 13;
             label8.Text = "Rate this movie";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(694, 563);
+            label9.Name = "label9";
+            label9.Size = new Size(86, 15);
+            label9.TabIndex = 16;
+            label9.Text = "Saw a mistake?";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(799, 558);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 18;
+            button3.Text = "Correct it";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // MovieDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(993, 582);
+            ClientSize = new Size(1006, 611);
+            Controls.Add(button3);
+            Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(trackBar1);
@@ -223,5 +246,7 @@
         private TrackBar trackBar1;
         private Label label7;
         private Label label8;
+        private Label label9;
+        private Button button3;
     }
 }

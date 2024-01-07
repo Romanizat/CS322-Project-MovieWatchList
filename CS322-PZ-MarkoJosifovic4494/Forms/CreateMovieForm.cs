@@ -1,4 +1,5 @@
-﻿using CS322_PZ_MarkoJosifovic4494.Service;
+﻿using CS322_PZ_MarkoJosifovic4494.Entity;
+using CS322_PZ_MarkoJosifovic4494.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,16 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
     public partial class CreateMovieForm : Form
     {
         private readonly MovieService _movieService;
-        public CreateMovieForm(MovieService movieService)
+        private readonly Movie _movie;
+        public CreateMovieForm(MovieService movieService, Movie movie)
         {
             InitializeComponent();
             _movieService = movieService;
+            _movie = movie;
+            if (_movie != null)
+            {
+                FillForm();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,9 +41,24 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
                 return;
             }
 
-            _movieService.CreateMovie(title, summary, imdb, imageUrl);
-
+            if (_movie != null)
+            {
+                _movieService.UpdateMovie(_movie.Id, title, summary, imdb, imageUrl);
+            }
+            else
+            {
+                _movieService.CreateMovie(title, summary, imdb, imageUrl);
+            }
             this.Close();
+
+        }
+
+        private void FillForm()
+        {
+            textBox1.Text = _movie.Title;
+            textBox2.Text = _movie.Imdb;
+            textBox3.Text = _movie.Image;
+            richTextBox1.Text = _movie.Summary;
         }
     }
 }

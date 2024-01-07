@@ -21,7 +21,7 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
         private User _currentUser;
         private UserMovie userMovie;
         private MovieService _MovieService;
-        private Boolean isRatingChanged;
+        private bool isRatingChanged;
         public MovieDetailsForm(Movie movie, MovieService movieService)
         {
             InitializeComponent();
@@ -169,6 +169,14 @@ namespace CS322_PZ_MarkoJosifovic4494.Forms
         {
             isRatingChanged = true;
             label8.Text = $"Rating: {trackBar1.Value / 2m}/5";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CreateMovieForm createMovieForm = new CreateMovieForm(_MovieService, _movie);
+            createMovieForm.StartPosition = FormStartPosition.Manual;
+            createMovieForm.Location = this.Location;
+            createMovieForm.Show();
         }
     }
 }
